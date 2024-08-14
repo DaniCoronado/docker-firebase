@@ -1,0 +1,14 @@
+services:
+    firebase:
+        build: .
+        container_name: firebase_emulators
+        volumes:
+            - .:/workspace
+        ports:
+            - "4000:4000"  # For Firebase Emulator UI
+            - "5001:5001"  # For Firebase Functions
+            - "8080:8080"  # For Firebase Firestore
+            - "9099:9099"  # For Firebase Auth
+            - "9199:9199"  # For Firebase Storage
+        environment:
+            - FIREBASE_PROJECT_ID=your-project-id
